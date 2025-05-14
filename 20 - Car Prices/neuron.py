@@ -24,8 +24,11 @@ X = torch.column_stack([
     torch.tensor(milage, dtype=torch.float32)
 ])
 
+# create a linear model with 2 inputs (milage, age) and 1 output (price)
 model = nn.Linear(2, 1)
+
 loss_fn = torch.nn.MSELoss()
+
 optimizer = torch.optim.SGD(model.parameters(), lr = 0.0001)
 
 prediction = model(X)
