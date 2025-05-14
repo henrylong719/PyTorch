@@ -25,6 +25,8 @@ X = torch.column_stack([
     torch.tensor(age, dtype=torch.float32),
     torch.tensor(milage, dtype=torch.float32)
 ])
+
+# axis=0: apply mean and std to each column
 X_mean = X.mean(axis=0)
 X_std = X.std(axis=0)
 X = (X - X_mean) / X_std

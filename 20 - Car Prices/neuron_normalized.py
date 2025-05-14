@@ -26,6 +26,8 @@ X = torch.column_stack([
 ])
 y = torch.tensor(price, dtype=torch.float32)\
     .reshape((-1, 1))
+
+# Normalize data
 y_mean = y.mean()
 y_std = y.std()
 y = (y - y_mean) / y_std
