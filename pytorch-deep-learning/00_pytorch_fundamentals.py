@@ -488,3 +488,51 @@ numpy_tensor = tensor.numpy()
 # tensor([1., 1., 1., 1., 1., 1., 1.]) [1. 1. 1. 1. 1. 1. 1.]
 print(tensor, numpy_tensor)
 
+# Reproducibility
+
+random_tensor_A = torch.rand(3, 4)
+random_tensor_B = torch.rand(3, 4)
+
+print(random_tensor_A)
+print(random_tensor_B)
+
+# tensor([[False, False, False, False],
+#        [False, False, False, False],
+#        [False, False, False, False]])
+
+print(random_tensor_A == random_tensor_B)
+
+
+# Ransom but reproducible tensors
+
+# Set the random seed
+RANDOM_SEED = 42
+torch.manual_seed(RANDOM_SEED) # type: ignore
+random_tensor_C = torch.rand(3, 4)
+
+torch.manual_seed(RANDOM_SEED) # type: ignore
+random_tensor_D = torch.rand(3, 4)
+
+
+# tensor([[True, True, True, True],
+#        [True, True, True, True],
+#        [True, True, True, True]])
+
+print(random_tensor_C == random_tensor_D)
+
+
+
+# GPU
+
+# !nvidia-smi
+
+
+# check for GPU access with PyTorch
+
+print(torch.cuda.is_available())
+
+# Setup device agnostic code
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+# Count number of devices
+torch.cuda.device_count()
