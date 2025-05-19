@@ -184,4 +184,55 @@ print(f"Device tensor is on: {some_tensor.device}")
 
 
 
+# Manipulating Tensors (tensor operations)
+
+# Tensor operations include:
+# * Addition
+# * Subtraction
+# * Multiplication (element-wise)
+# * Division
+# * Matrix multiplication
+
+# Create a tensor
+tensor = torch.tensor([1 ,2, 3])
+
+# tensor([11, 12, 13])
+print(tensor + 10)
+
+# tensor([10, 20, 30])
+print(tensor * 10)
+
+# tensor([-9, -8, -7])
+print(tensor - 10)
+
+# Try out pytorch in-build functions
+
+# tensor([10, 20, 30])
+print(torch.mul(tensor, 10))
+
+# tensor([11, 12, 13])
+print(torch.add(tensor, 10))
+
+
+# Matrix multiplication
+
+# Two main ways of performing multiplication in neural networks and deep learning
+
+# 1. Element-wise multiplication
+# 2. Matrix multiplication (dot product)
+
+# Element wise multiplication
+
+# tensor([1, 2, 3]) * tensor([1, 2, 3])
+# Equals: tensor([1, 4, 9])
+print(tensor, "*", tensor)
+print(f"Equals: {tensor * tensor}")
+
+# Matrix multiplication
+# tensor(14)
+print(torch.matmul(tensor, tensor))
+
+# Matrix multiplication by hand
+# 1 * 1 + 2 * 2 + 3 * 3
+
 
