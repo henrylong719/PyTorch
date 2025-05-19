@@ -410,3 +410,60 @@ print(f"Previous shape: {x_original.shape}")
 
 # New shape: torch.Size([3, 224, 224])
 print(f"New shape: {x_premuted.shape}") # [colour_channels, height, width]
+
+
+x = torch.arange(1, 10).reshape(1, 3, 3)
+
+
+# tensor([[[1, 2, 3],
+#         [4, 5, 6],
+#         [7, 8, 9]]]) torch.Size([1, 3, 3])
+
+print(x, x.shape)
+
+# tensor([[1, 2, 3],
+#        [4, 5, 6],
+#        [7, 8, 9]])
+
+print(x[0])
+
+# tensor([1, 2, 3])
+print(x[0][0])
+
+# tensor(1)
+print(x[0][0][0])
+
+# tensor(9)
+print(x[0][2][2])
+
+
+# You can also use ":" to select "all" of a target dimension
+
+# tensor([[1, 2, 3]])
+print(x[:, 0])
+
+
+# Get all value of 0th and 1st dimensions but only index 1 of 2nd dimension
+
+# tensor([[2, 5, 8]])
+print(x[:, :, 1])
+
+# Get all values of the 0 dimension but only the 1 index value of 1st and 2nd dimension
+# tensor([5])
+print(x[:, 1, 1])
+
+# Get index 0 of 0th and 1st dimension and all values of 2nd dimension
+
+# tensor([1, 2, 3])
+print(x[0, 0, :])
+
+
+# Index on x to return 9
+# tensor([9])
+
+print(x[:, 2, 2])
+
+# Index on x to return 3, 6, 9
+# tensor([[3, 6, 9]])
+
+print(x[:, :, 2])
