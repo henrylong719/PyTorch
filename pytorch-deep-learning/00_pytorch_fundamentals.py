@@ -1,4 +1,5 @@
 import torch
+import numpy as np
 
 # scalar
 
@@ -467,3 +468,23 @@ print(x[:, 2, 2])
 # tensor([[3, 6, 9]])
 
 print(x[:, :, 2])
+
+
+# Pytorch tensors & NumPy
+
+array = np.arange(1.0, 8.0)
+
+# warning: when converting from numpy -> pytorch, pytorch reflects numpy's
+# default datatype of float64 unless specified otherwise
+tensor = torch.from_numpy(array) # type: ignore
+
+# [1. 2. 3. 4. 5. 6. 7.] tensor([1., 2., 3., 4., 5., 6., 7.])
+print(array, tensor)
+
+# Tensor to NumPy array
+tensor = torch.ones(7)
+numpy_tensor = tensor.numpy()
+
+# tensor([1., 1., 1., 1., 1., 1., 1.]) [1. 1. 1. 1. 1. 1. 1.]
+print(tensor, numpy_tensor)
+
