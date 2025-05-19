@@ -236,3 +236,66 @@ print(torch.matmul(tensor, tensor))
 # 1 * 1 + 2 * 2 + 3 * 3
 
 
+# One of the most common errors in deep learning: shape errors
+
+# Shapes for matrix multiplication
+tensor_A = torch.tensor([[1, 2],
+                         [3, 4],
+                         [5, 6]])
+
+
+tensor_B = torch.tensor([[7, 10],
+                         [8, 11],
+                          [9, 12]])
+
+
+# torch.mm(tensor_A, tensor_B) # torch.mm is the same as torch.matmul
+
+# tnsor shape issue 
+# torch.matmul(tensor_A, tensor_B)
+
+
+# To fix our tensor shape issues, we can manipulate the shape of one of our tensors using a transpose.
+# A transpose switches the axes or dimensions of a given tensor.
+
+#  torch.Size([3, 2])
+print(tensor_B, tensor_B.shape)
+
+# torch.Size([2, 3])
+print(tensor_B.T, tensor_B.T.shape)
+
+
+# tensor([[ 27,  30,  33],
+#        [ 61,  68,  75],
+#        [ 95, 106, 117]])
+print(torch.matmul(tensor_A, tensor_B.T))
+
+
+# Finding the min, max, mean, sum, etc (tensor aggregation)
+
+x = torch.arange(0, 100, 10)
+
+# tensor([ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90]) torch.int64
+print(x, x.dtype)
+
+# tensor(0) tensor(0)
+print(torch.min(x), x.min())
+
+# tensor(90) tensor(90)
+print(torch.max(x), x.max())
+
+# tensor(45.) tensor(45.)
+print(torch.mean(x.type(torch.float32)), x.type(torch.float32).mean())
+
+# tensor(450) tensor(450)
+print(torch.sum(x), x.sum())
+
+
+# Finding the positional min and max
+
+# tensor(0)
+print(x.argmin())
+
+# tensor(9)
+print(x.argmax())
+
