@@ -536,3 +536,24 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Count number of devices
 torch.cuda.device_count()
+
+
+# 3. Putting tensors (and models) on the GPU
+
+tensor = torch.tensor([1, 2, 3])
+
+# Tensor not on GPU
+print(tensor, tensor.device)
+
+
+# Move tensor to GPU (if available)
+tensor_on_gpu = tensor.to(device)
+print(tensor_on_gpu)
+
+
+# 4. Moving tensors back to the CPU
+# tensor_on_gpu.numpy()
+
+# To fix the GPU tensor with NumPy issue, we can first set it to the CPU
+tensor_back_on_cpu = tensor_on_gpu.cpu().numpy()
+print(tensor_back_on_cpu)
