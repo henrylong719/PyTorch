@@ -557,3 +557,4 @@ print(tensor_on_gpu)
 # To fix the GPU tensor with NumPy issue, we can first set it to the CPU
 tensor_back_on_cpu = tensor_on_gpu.cpu().numpy()
 print(tensor_back_on_cpu)
+
