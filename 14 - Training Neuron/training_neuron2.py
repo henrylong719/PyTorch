@@ -15,7 +15,7 @@ model = nn.Linear(1, 1)
 loss_fn = torch.nn.MSELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=0.0001)
 
-for i in range(0, 100000):
+for i in range(0, 10000):
     # Training pass
     optimizer.zero_grad()
     outputs = model(X1)

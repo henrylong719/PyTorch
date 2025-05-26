@@ -27,7 +27,7 @@ X = torch.column_stack([
 ])
 
 # axis=0: apply mean and std to each column
-X_mean = X.mean(axis=0)
+X_mean = X.mean(axis=0) # type: ignore
 X_std = X.std(axis=0)
 X = (X - X_mean) / X_std
 
